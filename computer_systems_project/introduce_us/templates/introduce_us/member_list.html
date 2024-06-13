@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Members</title>
+    <link rel="stylesheet" href="{% static 'introduce_us/styles.css' %}">
+</head>
+<body>
+    <h1>Our Team</h1>
+    <div class="team-container">
+        {% for member in members %}
+            <div class="team-member">
+                <img src="{{ member.photo.url }}" alt="{{ member.name }}" class="member-photo">
+                <h2>{{ member.name }}</h2>
+                <p><strong>Role:</strong> {{ member.role }}</p>
+                <p><strong>Email:</strong> {{ member.email }}</p>
+                <p><strong>Phone:</strong> {{ member.phone }}</p>
+                <p>{{ member.bio }}</p>
+            </div>
+        {% endfor %}
+    </div>
+<!--    <script src="{% static 'introduce_us/scripts.js' %}"></script>-->
+</body>
+</html>
